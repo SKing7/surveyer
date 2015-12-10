@@ -4,18 +4,16 @@ import Row from './Row';
 import Util from '../lib/util';
 
 var Panel = React.createClass({
-  getInitialState: function () {
-    return this.props;
-  },
   render: function () {
     var props = this.props;
     var title = props.title;
     var content = props.content;
+    var rect = props.rect;
 
     if (!title) return <div></div>;
-    return this.getPanel(title, content);
+    return this.getPanel(title, content, rect);
   },
-  getPanel: function (title, content) {
+  getPanel: function (title, content, rect) {
     var wrapperStyles = {
       display: 'inline-block',
       backgroundColor: '#fff',
@@ -56,6 +54,8 @@ var Panel = React.createClass({
         <div style={bodyStyles}>
           <div>Font</div>
           <Row data={content.font}/>
+          <div>Rect</div>
+          <Row data={rect}/>
         </div>
       </div>
     );

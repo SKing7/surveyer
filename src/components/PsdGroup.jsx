@@ -3,9 +3,6 @@ import PsdLayer from './PsdLayer';
 import Util from '../lib/util';
 
 var PsdGroup = React.createClass({
-  getInitialState: function () {
-    return this.props;
-  },
   render: function () {
     var props = this.props;
     var data = props.data;
@@ -35,7 +32,7 @@ var PsdGroup = React.createClass({
           </div>);
         } else if (child.type === 'layer'){
           return (<div key={'layer_' + key} style={groupDefaultStyles}>
-          <PsdLayer key={key} data={JSON.stringify(child)}/>
+          <PsdLayer key={key} data={JSON.stringify(child)} rect={JSON.stringify(calcRect(data, child))}/>
           </div>);
         }
         })}
@@ -43,5 +40,21 @@ var PsdGroup = React.createClass({
     );
   }
 });
+function calcRect (p, c) {
+  if (c.text) {
+    return {
+      L: c.left - p.left,
+      T: c.top - p.top,
+    }
+  }
+  return {
+    w: c.width,
+    h: c.height,
+    L: c.left - p.left,
+    T: c.top - p.top,
+    R: p.right - c.right,
+    B: p.bottom - c.bottom,
+  }
+}
 
 export default PsdGroup;

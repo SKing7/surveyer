@@ -6,6 +6,7 @@ var PsdLayer = React.createClass({
   render: function () {
     var props = this.props;
     var data = props.data;
+    var rect = props.rect;
     var layerCommonStyles = {
     };
 
@@ -16,7 +17,7 @@ var PsdLayer = React.createClass({
       <div style={layerCommonStyles}>
         {(() => {
           if (data.text) {
-            return <Panel title={data.name} content={data.text}/>
+            return <Panel title={data.name} content={data.text} rect={rect}/>
           }
         })()}
       </div>
