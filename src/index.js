@@ -1,9 +1,10 @@
+import ReactDOM from 'react-dom';
 import React from 'react';
-import Component from './Component';
+import PsdCanvas from './Components/PsdCanvas';
 
 window.onload = () => {
-  React.render(
-    <Component />,
+  ReactDOM.render(
+    <PsdCanvas />,
     document.querySelector('#container')
   );
 };
