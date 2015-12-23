@@ -14,7 +14,7 @@ var PsdCanvas = React.createClass({
     );
   },
   componentDidMount: function () {
-    var source = 'http://127.0.0.1:3000/api/get/psd?url=test.psd';
+    var source = this.props.psd;
     $.get(source, function (result) {
       this.setState({
         data: JSON.stringify(result)
