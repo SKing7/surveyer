@@ -8,4 +8,6 @@
 
 `http://0.0.0.0:9000/?psd=xxx`
 
+##使用截图
+![Alt text](https://raw.githubusercontent.com/SKing7/surveyer/master/example/shots/example_1.png "Optional title")
 
